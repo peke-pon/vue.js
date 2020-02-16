@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue.js</title>
+</head>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #fbfbfc;
+    color: #454659;
+  }
+
+  h2 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  p {
+    padding: 0 1em;
+  }
+
+  hr {
+    margin: 30px 0;
+  }
+
+  button {
+    margin-left: 2em;
+  }
+
+  strong {
+    padding: 0.5em;
+  }
+
+  .size {
+    font-size: 1.1em;
+  }
+
+  .color {
+    display: inline-block;
+    color: rgba(23, 40, 116, 0.932);
+    transition: 1s ease;
+  }
+
+  .color2 {
+    display: inline-block;
+    color: rgb(23, 116, 116);
+  }
+
+  .font-rotate {
+    display: inline-block;
+    color: rgb(23, 40, 116);
+    transform: rotateY(180deg);
+    transition: 0.8s ease;
+  }
+
+</style>
+
+<body>
+  <div id="app">
+    <h2>5.スタイル</h2>
+    <h4>配列形式でクラスの複数指定</h4>
+    <p><strong :class="[colors, size]">配列形式</strong> でプロパティから複数のクラスが指定できます
+    </p>
+    <hr />
+    <h4>オブジェクト形式でクラスの複数指定</h4>
+    <p><strong :class="{ color: true, size: true}">オブジェクト形式</strong> でも複数のクラスが指定できます
+    </p>
+    <hr />
+    <h4>クラスの動的な変更</h4>
+    <p>オブジェクトのなかの<strong :class="{ color: active, 'font-rotate': !active}">ture,falseを変更</strong> することで動的にクラスを付与できる
+    </p>
+    <button @click="active = !active">クリック</button>
+    <hr />
+    <h4>computedでクラスを変更</h4>
+    <p>computedで<strong :class="addClass">オブジェクトをreturnで返す</strong> ことでもクラスを付与できる
+    </p>
+    <button @click="active2 = !active2">クリック</button>
+    <hr />
+    <h4>インラインのstyle属性を変更</h4>
+    <p><strong :style="{color: white, backgroundColor: bg}">style属性</strong> にプロパティから複数のインラインスタイルが指定できます
+    </p>
+    <hr />
+    <h4>オブジェクト形式でstyle属性を変更</h4>
+    <p><strong :style="styleObj">オブジェクト形式</strong> でも指定できます。
+    </p>
+    <hr />
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        colors: 'color2',
+        size: 'size',
+        white: '#fafafa',
+        bg: 'rgb(23, 116, 116)',
+        active: true,
+        active2: true,
+        styleObj: {　color: '#fafafa', backgroundColor: 'rgb(23, 116, 116)'　},
+      },
+      computed: {
+        addClass() {
+          return { color: this.active2, 'font-rotate': !this.active2 }
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>

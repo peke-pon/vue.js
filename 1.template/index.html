@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue.js</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #fbfbfc;
+      color: #454659;
+    }
+
+    h2 {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+
+    p {
+      padding: 0 1em;
+    }
+
+    hr {
+      margin: 30px 0;
+    }
+  </style>
+
+  <body>
+    <div id="app">
+      <h2>1.テンプレート構文</h2>
+      <p>マスタッシュ構文</p>
+      <p>{{ text }}</p>
+      <hr />
+      <p>数値の表示</p>
+      <p>{{ number * 3 }} という数値の表示や簡単な計算もできる</p>
+      <hr />
+      <p>三項演算子</p>
+      <p>三項演算子で分岐が{{ flag ? 'できる' : 'できない' }}</p>
+      <hr />
+      <p>メソッド</p>
+      <p>{{ speak() }}</p>
+      <hr />
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          text: "2重中括弧の中に変数名でVueインスタンスの変数の中身を表示する",
+          content:
+            "メソッドの挿入も可能。ただし単一の式しか入れることはできない",
+          number: 100,
+          flag: true
+        },
+        methods: {
+          speak() {
+            return this.content;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

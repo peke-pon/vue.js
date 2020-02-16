@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue.js</title>
+</head>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #fbfbfc;
+    color: #454659;
+  }
+
+  input {
+    width: 60%;
+  }
+
+  h2 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  p {
+    padding: 0 1em;
+  }
+
+  hr {
+    margin: 30px 0;
+  }
+</style>
+
+<body>
+  <div id="app">
+    <h2>3.イベント処理</h2>
+    <p>v-on:clickでクリックイベント</p>
+    <p v-on:click="counted">{{ count }}回クリック (v-on:の省略形は@）</p>
+    <hr />
+    <p>v-on:mousemoveでマウスイベント</p>
+    <p v-on:mousemove="eventDisplay">コンソールを表示してマウスをのせてください X : {{ x }}, Y : {{ y }}
+    </p>
+    <hr />
+    <p>イベントオブジェクトと引数</p>
+    <p v-on:mouseover="mouseDisplay('$event')">マウスをのせてください
+    </p>
+    <hr />
+    <p>イベント修飾子.stop</p>
+    <p v-on:mouseover>.stopでマウスをのせても反応しません
+    </p>
+    <hr />
+    <p>イベント修飾子.prevent</p>
+    <p>.preventで<a href="#" v-on:click.prevent>クリック</a>してもリンクが機能しません</a>
+    </p>
+    <hr />
+    <p>キー修飾子keyup.enter</p>
+    <p><input type="text" v-on:keyup.enter="enter()" v-model="value" placeholder="Enterで入力">
+    </p>
+    <p >{{ content }}</p>
+    <hr />
+    <p>システム修飾子keyup.alt</p>
+    <p><input type="text" v-on:keyup.alt.67="clear()" v-model="value2" placeholder="alt+cでクリア">
+    </p>
+    <hr />
+    <p>v-modelディレクティブ</p>
+    <p><input type="text" v-model="syncData">
+    </p>
+    <p>{{ syncData }}</p>
+    <hr />
+    <p><a href="https://jp.vuejs.org/v2/guide/events.html#%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E4%BF%AE%E9%A3%BE%E5%AD%90">イベント修飾子</a></p>
+    <p><a href="https://developer.mozilla.org/ja/docs/Web/Events">イベント種類</a></p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        count: 0,
+        value: '',
+        value2: '',
+        content: '',
+        syncData: '双方向データバインディング',
+        x: 0,
+        y: 0,
+      },
+      methods: {
+        counted() {
+          return this.count++;
+        },
+        eventDisplay(event) {
+          console.log(event);
+          this.x = event.screenX;
+          this.y = event.screenY;
+        },
+        mouseDisplay(str, $event) {
+          console.log(event.target);
+          event.target.innerHTML = str + 'で引数があってもイベントオブジェクトを取得可能'
+        },
+        enter() {
+          this.content = this.value
+        },
+        clear() {
+          this.value2 = "";
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
