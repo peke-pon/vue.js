@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue.js</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fbfbfc;
+    color: #454659;
+  }
+
+  h2 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    padding: 0 1em;
+  }
+
+  ul {
+    list-style: none;
+    margin-left: -1.5em;
+  }
+
+  li {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+
+  hr {
+    margin: 30px 0;
+  }
+
+  button {
+    margin-left: 2em;
+  }
+
+  td {
+    padding: 0 1em;
+  }
+
+  strong {
+    padding: 0.5em;
+  }
+
+  button {
+    margin-top: 2em;
+  }
+
+  .input {
+    width: 80%;
+    margin-left: 1em;
+  }
+
+  textarea {
+    height: 10em;
+    resize: none;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .palette {
+    margin-top: 1em;
+  }
+
+
+  .v-enter,
+  .v-leave-to {
+    opacity: 0;
+  }
+
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.3s;
+  }
+
+  .v-enter-to,
+  .v-leave {
+    opacity: 1;
+  }
+
+  .slide-enter,
+  .slide-leave-to {
+    opacity: 0;
+    transform: translateX(100%)
+  }
+
+  .slide-enter-active,
+  .slide-leave-active {
+    transition: all 0.5s;
+  }
+
+  .slide-enter-to,
+  .slide-leave {
+    opacity: 1;
+    transform: translateX(0)
+  }
+
+  .trs {
+    transition: 0.3s;
+    opacity: 0;
+    transform: translateX(50%);
+  }
+
+  .slideIn {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+</style>
+
+<body>
+  <div id="app">
+    <h2>10.トランジション</h2>
+    <h4>トランジションコンポーネント</h4>
+    <transition>
+      <ul v-show="disp">
+        <li>v-enter</li>
+        <li>v-enter-active</li>
+        <li>v-enter-to</li>
+        <li>v-leave</li>
+        <li>v-leave-active</li>
+        <li>v-leave-to</li>
+      </ul>
+    </transition>
+    <button @click="disp = !disp">クリック</button>
+    <hr />
+    <h4>カスタムトランジション</h4>
+    <transition name="slide">
+      <ul v-show="disp2">
+        <li>slide-enter</li>
+        <li>slide-enter-active</li>
+        <li>slide-enter-to</li>
+        <li>slide-leave</li>
+        <li>slide-leave-active</li>
+        <li>slide-leave-to</li>
+      </ul>
+    </transition>
+    <button @click="disp2 = !disp2">クリック</button>
+    <hr />
+    <h4>CSSトランジション</h4>
+    <transition>
+      <div>
+        <p :class="{ slideIn : disp3, trs : true }" >CSSのクラスでトランジション</p>
+      </div>
+    </transition>
+    <button @click="disp3 = !disp3">クリック</button>
+    <hr />
+    <h4>Animation.CSS</h4>
+    <transition enter-active-class="animated bounce" leave-active-class="animated zoomout" :class="{ slideIn : disp3}">
+      <div>
+        <p>CSSのクラスでトランジション</p>
+      </div>
+    </transition>
+    <button @click="disp3 = !disp3">クリック</button>
+    <hr />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          disp: true,
+          disp2: true,
+          disp3: true,
+        }
+      });
+      console.dir(app);
+    </script>
+</body>
+
+</html>
