@@ -158,15 +158,6 @@
       </div>
     </transition>
     <button @click="disp3 = !disp3">クリック</button>
-    <hr />
-    <h4>Animation.CSS</h4>
-    <transition enter-active-class="animated bounce" leave-active-class="animated zoomout" :class="{ slideIn : disp3}">
-      <div>
-        <p>CSSのクラスでトランジション</p>
-      </div>
-    </transition>
-    <button @click="disp3 = !disp3">クリック</button>
-    <hr />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
       const app = new Vue({
