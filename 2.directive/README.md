@@ -1,5 +1,7 @@
 # 2.ディレクティブ
 
+[demo](https://peke-pon.github.io/vue.js/2.directive/)
+
 ## View
 
 ![](https://i.imgur.com/Qu1D8CB.png)
