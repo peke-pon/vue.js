@@ -1,5 +1,7 @@
 # 4.メソッド
 
+[demo](https://peke-pon.github.io/vue.js/4.methods/)
+
 ## View
 
 ![](https://i.imgur.com/dJyEY46.png)
