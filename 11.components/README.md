@@ -1,6 +1,6 @@
 # 11.コンポーネント
 
-[demo](https://peke-pon.github.io/vue.js/11.component/)
+[demo](https://peke-pon.github.io/vue.js/11.components/)
 
 ## View
 
