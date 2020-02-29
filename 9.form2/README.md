@@ -1,5 +1,7 @@
 # 9.フォーム入力2
 
+[demo](https://peke-pon.github.io/vue.js/9.form2/)
+
 ## View
 
 ![](https://i.imgur.com/24Y03kf.png)
