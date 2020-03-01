@@ -1,5 +1,5 @@
 <template>
-  <p>フォロー ( {{ count }} )<button @click="count++">+</button></p>
+  <p>???? ( {{ count }} )<button @click="count++">+</button></p>
 </template>
 
 <script>
