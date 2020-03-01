@@ -14,8 +14,10 @@
   <div id="app">
     <h1>13.props-$emit</h1>
     <p>総在庫数: {{ totalCount }}</p>
+    // 子コンポーネントの属性にpropsが設定される
     <Number :total-number="counter1" :product="products[0]" @my-click="count1"></Number>
     <Number :total-number="counter2" :product="products[1]" @my-click="count2"></Number>
+    // $eventに$emitで送られたデータが入っている
     <Number @my-click="disp = $event"></Number>
     <p>{{ disp }}</p>
   </div>
@@ -29,7 +31,7 @@ export default {
   name: 'App',
   data() {
     return {
-    // propsにバインドするデータ
+      // propsにバインドするデータ
       counter1: 10,
       counter2: 7,
       products: ['vue.js入門','Nuxt.js入門'],
@@ -42,7 +44,7 @@ export default {
     Number
   },
   methods: {
-  // カスタムイベントにメソッドを設定
+    // カスタムイベントにメソッドを設定
     count1() {
       this.counter1--
     },
@@ -65,6 +67,7 @@ export default {
 // 子コンポーネント
 <template>
   <div>
+    // propsで設定される変数
     <h4>商品: {{ product }}</h4>
     <p>在庫数: {{ totalNumber }}</p>
     <button @click="decrement">購入</button>
