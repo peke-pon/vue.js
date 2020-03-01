@@ -41,7 +41,6 @@ new Vue({
 ## src/App.vue
 
 ```html
-// グローバルに登録したコンポーネントを使用
 <template>
   <div>
     <h4>グローバルコンポーネント</h4>
@@ -83,7 +82,6 @@ export default {
 
 <script>
 import counter2 from './components/couter2.vue'
-
 export default {
   components: {
     counter2
@@ -129,6 +127,7 @@ export default {
 }
 </script>
 
+// scoped属性でこのコンポーネントだけにスタイルを定義（カスタムデータ属性で設定される）
 <style scoped>
   button {
   border: 1px solid rgb(32, 161, 133);
