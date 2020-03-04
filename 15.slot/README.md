@@ -1,4 +1,4 @@
-# 14.filter/mixin
+# 15.slot
 
 [demo](https://peke-pon.github.io/vue.js/15.slot/dist/)
 
